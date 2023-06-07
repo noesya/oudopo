@@ -1,4 +1,6 @@
-[<%= value.class %>]
+<span class="badge border text-black mb-1">
+  <%= value.class %>
+</span>
 <% if value.is_a?(Hash) %>
   <table class="table table-bordered">
     <tbody>
@@ -12,8 +14,10 @@
   </table>
 <% elsif value.is_a?(Array) %>
   <% if value.one? %>
-    [single]
-    <%= value.first %>
+    <span class="badge border text-black mb-1">
+      Single
+    </span>
+    <%= render 'items/value', value: value.first %>
   <% else %>
     <table class="table table-bordered">
       <tbody>

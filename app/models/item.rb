@@ -33,7 +33,7 @@ class Item < ApplicationRecord
   protected
 
   def denormalize_data
-    self.name = data['essentials']['title']
+    self.name = CGI.unescapeHTML data['essentials']['title']
     self.date = data['essentials']['date']
   end
 end
