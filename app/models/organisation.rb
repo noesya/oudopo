@@ -14,6 +14,10 @@ class Organisation < ApplicationRecord
 
   has_many :archives
 
+  def to_param
+    slug
+  end
+
   def to_s
     "#{name}"
   end

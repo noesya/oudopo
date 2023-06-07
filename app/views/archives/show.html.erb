@@ -6,7 +6,7 @@
   </div>
   <div class="offset-lg-1 col-lg-4">
     <label class="form-label">Organisation</label>
-    <p><%= link_to @archive.organisation, @archive.organisation %></p>
+    <p><%= link_to @archive.organisation, direct_organisation_path(@archive.organisation) %></p>
     <label class="form-label">Url</label>
     <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
 

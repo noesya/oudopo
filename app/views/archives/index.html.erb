@@ -10,8 +10,8 @@
   <tbody>
     <% @archives.each do |archive| %>
       <tr>
-        <td><%= link_to archive, archive %></td>
-        <td><%= link_to archive.organisation, archive.organisation %></td>
+        <td><%= link_to archive, direct_archive_path(organisation_slug: archive.organisation.slug, archive_slug: archive.slug) %></td>
+        <td><%= link_to archive.organisation, direct_organisation_path(archive.organisation) %></td>
       </tr>
     <% end %>
   </tbody>

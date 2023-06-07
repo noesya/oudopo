@@ -12,7 +12,7 @@
       <tbody>
         <% @organisation.archives.each do |archive| %>
           <tr>
-            <td><%= link_to archive, archive %></td>
+            <td><%= link_to archive, direct_archive_path(archive_slug: archive.slug) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -21,8 +21,6 @@
   <div class="offset-lg-1 col-lg-4">
     <label class="form-label">Site Web</label>
     <p><%= link_to @organisation.website, @organisation.website, target: :_blank %></p>
-    <%=  @organisation.slug %>
-
     <% if can? :edit, @organisation %>
       <div>
         <%= link_to "Modifier", edit_organisation_path(@organisation), class: 'btn btn-primary mb-1' %>

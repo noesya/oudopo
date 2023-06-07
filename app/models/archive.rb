@@ -6,6 +6,7 @@
 #  description     :text
 #  name            :string
 #  secret          :string
+#  slug            :string
 #  url             :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -20,8 +21,14 @@
 #  fk_rails_71b4056303  (organisation_id => organisations.id)
 #
 class Archive < ApplicationRecord
+  include WithSlug
+
   belongs_to :organisation
   before_validation :generate_secret_if_empty
+
+  # def to_param
+  #   slug
+  # end
 
   def to_s
     "#{name}"

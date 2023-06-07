@@ -1,5 +1,5 @@
 class OrganisationsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug, id_param: :slug
 
   add_breadcrumb 'Organisations', :organisations_path
 

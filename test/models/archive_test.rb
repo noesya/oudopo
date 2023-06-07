@@ -6,6 +6,7 @@
 #  description     :text
 #  name            :string
 #  secret          :string
+#  slug            :string
 #  url             :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
