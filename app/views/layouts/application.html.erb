@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %> • Oudopo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    
+
+<div class="container py-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.svg', width: 300 %>
+    <% end %>
+  </header>
+  <main>
+    <h1 class="text-body-emphasis"><%= yield :title %></h1>
+    <%= yield %>
+  </main>
+  <footer class="pt-5 my-5 text-body-secondary border-top">
+    <a href="https://www.noesya.coop" target="_blank">noesya</a> • 
+    <a href="https://www.github.com/noesya/oudopo" target="_blank">github</a> • 
+    2023
+  </footer>
+  </body>
+</html>
