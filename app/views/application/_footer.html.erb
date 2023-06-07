@@ -1,6 +1,19 @@
 <footer class="pt-5 my-5 text-body-secondary border-top">
-  <a href="https://www.noesya.coop" target="_blank">noesya</a> • 
-  <a href="https://www.github.com/noesya/oudopo" target="_blank">Code source sur Github</a> • 
-  <a href="https://github.com/noesya/oudopo/blob/main/LICENSE" target="_blank">Licence GPL</a> • 
-  2023
+  <div class="d-lg-flex">
+    <p>
+      <% if user_signed_in? %>
+        <%= link_to current_user.email, edit_user_registration_path %>
+        <%= link_to "Déconnexion", destroy_user_session_path %>
+      <% else %>
+        <%= link_to "S'identifier", new_user_session_path %>
+        <%= link_to "Créer un compte", new_user_registration_path %>
+      <% end %>
+    </p>
+    <p class="ms-auto">
+      <a href="https://www.noesya.coop" target="_blank">noesya</a> • 
+      <a href="https://www.github.com/noesya/oudopo" target="_blank">Code source sur Github</a> • 
+      <a href="https://github.com/noesya/oudopo/blob/main/LICENSE" target="_blank">Licence GPL</a> • 
+      2023
+    </p>
+  </div>
 </footer>
