@@ -4,7 +4,7 @@
     <tbody>
       <% value.each do |k, v| %>
         <tr>
-          <td><%= k.to_s.titleize %></td>
+          <td><%= k %></td>
           <td><%= render 'items/value', value: v %></td>
         </tr>
       <% end %>
