@@ -26,9 +26,14 @@ class Archive < ApplicationRecord
   belongs_to :organisation
   before_validation :generate_secret_if_empty
 
-  # def to_param
-  #   slug
-  # end
+  has_many :items
+
+  def store(data)
+    original_id = data['essentials']['id']
+    item = items.where(original_id: original_id).first_or_initialize
+    item.data = data
+    item.save
+  end
 
   def to_s
     "#{name}"

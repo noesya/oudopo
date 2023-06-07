@@ -7,12 +7,14 @@
       <thead>
         <tr>
           <th>Nom</th>
+          <th>Éléments</th>
         </tr>
       </thead>
       <tbody>
         <% @organisation.archives.each do |archive| %>
           <tr>
             <td><%= link_to archive, direct_archive_path(archive_slug: archive.slug) %></td>
+            <td><%= archive.items.count %></td>
           </tr>
         <% end %>
       </tbody>

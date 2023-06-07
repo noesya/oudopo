@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr>
+        <td><%= link_to item, direct_item_path( organisation_slug: item.archive.organisation.slug, 
+                                                archive_slug: item.archive.slug, 
+                                                item_id: item.id) %></td>
+        <td><%= l item.date if item.date.present? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

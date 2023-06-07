@@ -7,8 +7,14 @@
   <div class="offset-lg-1 col-lg-4">
     <label class="form-label">Organisation</label>
     <p><%= link_to @archive.organisation, direct_organisation_path(@archive.organisation) %></p>
-    <label class="form-label">Url</label>
-    <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
+
+    <label class="form-label">Items</label>
+    <p><%= @archive.items.count %></p>
+
+    <% if @archive.url.present? %>
+      <label class="form-label">Url</label>
+      <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
+    <% end %>
 
     <%= link_to 'Accéder aux secrets', secret_archive_path(@archive), class: 'btn btn-primary mb-1'  if can? :secret, @archive %>
 
@@ -21,6 +27,10 @@
   </div>
 </div>
 
-
+<%
+@items = @archive.items.ordered.page(params[:page])
+%>
+<%= render 'items/list', items: @items %>
+<%= paginate @items %>
 
 

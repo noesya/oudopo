@@ -1,0 +1,30 @@
+[<%= value.class %>]
+<% if value.is_a?(Hash) %>
+  <table class="table table-bordered">
+    <tbody>
+      <% value.each do |k, v| %>
+        <tr>
+          <td><%= k.to_s.titleize %></td>
+          <td><%= render 'items/value', value: v %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% elsif value.is_a?(Array) %>
+  <% if value.one? %>
+    [single]
+    <%= value.first %>
+  <% else %>
+    <table class="table table-bordered">
+      <tbody>
+        <% value.each do |element| %>
+          <tr>
+            <td><%= render 'items/value', value: element %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <%= value %>
+<% end %>

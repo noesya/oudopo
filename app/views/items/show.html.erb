@@ -1,0 +1,8 @@
+<%= content_for :title, @item %>
+
+<p><%= l @item.date if @item.date.present? %></p>
+
+<% @item.data.each do |key, value| %>
+  <h2 class="h4 mt-5"><%= key.to_s.titleize %></h2>
+  <%= render 'items/value', value: value %>
+<% end %>
