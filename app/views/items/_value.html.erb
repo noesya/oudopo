@@ -2,16 +2,18 @@
   <%= value.class %>
 </span>
 <% if value.is_a?(Hash) %>
-  <table class="table table-bordered">
-    <tbody>
-      <% value.each do |k, v| %>
-        <tr>
-          <td><%= k %></td>
-          <td><%= render 'items/value', value: v %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tbody>
+        <% value.each do |k, v| %>
+          <tr>
+            <td><%= k %></td>
+            <td style="max-width: 40vw; overflow-x: scroll"><%= render 'items/value', value: v %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% elsif value.is_a?(Array) %>
   <% if value.one? %>
     <span class="badge border text-black mb-1">
@@ -19,16 +21,26 @@
     </span>
     <%= render 'items/value', value: value.first %>
   <% else %>
-    <table class="table table-bordered">
-      <tbody>
-        <% value.each do |element| %>
-          <tr>
-            <td><%= render 'items/value', value: element %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tbody>
+          <% value.each do |element| %>
+            <tr>
+              <td><%= render 'items/value', value: element %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
 <% else %>
   <%= value %>
+  <% if strip_tags(value.to_s) != value.to_s %>
+    <div class="card">
+      <div class="card-body">
+        <%= value.html_safe %>
+      </div>
+    </div>
+  <% else %>
+  <% end %>
 <% end %>
