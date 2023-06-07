@@ -3,7 +3,7 @@
     font-family: 'Knile';
     font-style: normal;
     font-weight: 400;
-    src: asset-url("knile-light-webfont.woff2") format("woff2"), url("knile-light-webfont.woff") format("woff");
+    src: asset-url("knile-light-webfont.woff2") format("woff2"), asset-url("knile-light-webfont.woff") format("woff");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-family: 'Knile';
     font-style: normal;
     font-weight: 700;
-    src: asset-url("knile-bold-webfont.woff2") format("woff2"), url("knile-bold-webfont.woff") format("woff");
+    src: asset-url("knile-bold-webfont.woff2") format("woff2"), asset-url("knile-bold-webfont.woff") format("woff");
 }
     
 @font-face {
@@ -19,5 +19,5 @@
     font-family: 'Knile';
     font-style: italic;
     font-weight: 400;
-    src: asset-url("knile-lightitalic-webfont.woff2") format("woff2"), url("knile-lightitalic-webfont.woff") format("woff");
+    src: asset-url("knile-lightitalic-webfont.woff2") format("woff2"), asset-url("knile-lightitalic-webfont.woff") format("woff");
 }
