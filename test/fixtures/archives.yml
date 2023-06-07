@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: one
+  secret: MyString
+  url: MyString
+  description: MyText
+
+two:
+  organization: two
+  secret: MyString
+  url: MyString
+  description: MyText

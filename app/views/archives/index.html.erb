@@ -1,0 +1,20 @@
+<%= content_for :title, 'Archives' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Archive</th>
+      <th>Organisation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @archives.each do |archive| %>
+      <tr>
+        <td><%= link_to archive, archive %></td>
+        <td><%= link_to archive.organisation, archive.organisation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Créer", new_archive_path, class: 'btn btn-primary' if can? :create, Archive %>

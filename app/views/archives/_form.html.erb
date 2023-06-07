@@ -1,10 +1,13 @@
-<%= simple_form_for(organisation) do |f| %>
+
+<%= simple_form_for(archive) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%= f.association :organisation, include_blank: false %>
     <%= f.input :name %>
-    <%= f.input :website %>
+    <%= f.input :description %>
+    <%= f.input :url %>
   </div>
 
   <div class="form-actions">

@@ -1,5 +1,5 @@
 # https://github.com/weppos/breadcrumbs_on_rails/issues/138
-class BootstrapFiveBreadcrumbs < BreadcrumbsOnRails::Breadcrumbs::SimpleBuilder
+class Bootstrap::Breadcrumbs < BreadcrumbsOnRails::Breadcrumbs::SimpleBuilder
   def render
     return '' if @elements.size == 0
 
