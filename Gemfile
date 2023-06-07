@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "breadcrumbs_on_rails"
 gem "bootsnap", require: false
+gem "cancancan"
 gem "cssbundling-rails"
 gem "devise"
 gem "devise-i18n"
@@ -16,6 +18,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "redis", "~> 4.0"
 gem "sassc-rails"
+gem "simple_form"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
@@ -27,6 +30,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "annotate"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 

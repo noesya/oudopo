@@ -12,35 +12,15 @@
   </head>
   <body>
     <div class="container py-3 py-md-5">
-      <nav class="navbar navbar-expand-md mb-5" aria-label="Fourth navbar example">
-        <%= link_to root_path do %>
-          <%= image_tag 'logo.svg', width: 250 %>
-        <% end %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <%= link_to 'Sortir de WordPress', wordpress_path, class: 'nav-link' %>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <main>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+      <%= render 'header' %>
+      <main class="mt-5>
+        <%= render 'breadcrumbs' %>
+        <%= render 'notice' %>
         <h1 class="text-body-emphasis"><%= yield :title %></h1>
         <%= yield %>
       </main>
-      <footer class="pt-5 my-5 text-body-secondary border-top">
-        <a href="https://www.noesya.coop" target="_blank">noesya</a> • 
-        <a href="https://www.github.com/noesya/oudopo" target="_blank">Code source sur Github</a> • 
-        <a href="https://github.com/noesya/oudopo/blob/main/LICENSE" target="_blank">Licence MIT</a> • 
-        2023
-      </footer>
+      <%= render 'footer' %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
   </body>
 </html>

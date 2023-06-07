@@ -1,0 +1,12 @@
+<%= content_for :title, @organisation %>
+
+<p>
+  <%= link_to @organisation.website, @organisation.website, target: :_blank %>
+</p>
+
+<% if can? :edit, @organisation %>
+  <div>
+    <%= link_to "Modifier", edit_organisation_path(@organisation), class: 'btn btn-primary mb-1' %>
+    <%= button_to "Supprimer", @organisation, method: :delete, class: 'btn btn-danger' %>
+  </div>
+<% end %>

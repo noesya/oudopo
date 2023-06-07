@@ -1,0 +1,16 @@
+<%= content_for :title, 'Organisations' %>
+
+<div class="row">
+  <% @organisations.each do |organisation| %>
+    <div class="col-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title h5"><%= organisation %></h2>
+          <%= link_to 'En savoir plus', organisation, class: 'stretched-link' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Créer", new_organisation_path, class: 'btn btn-primary' if can? :create, Organisation %>
