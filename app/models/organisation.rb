@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Organisation < ApplicationRecord
+  include WithSlug
+
   has_many :archives
 
   def to_s

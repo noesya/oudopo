@@ -1,17 +1,26 @@
 <%= content_for :title, @archive %>
 
-<p>Cette archive est gérée par l'organisation <%= link_to @archive.organisation, @archive.organisation %></p>
-
-<%= simple_format @archive.description %>
-
-<p>
-  <%= link_to @archive.url, @archive.url, target: :_blank %>
-</p>
-
-
-<% if can? :edit, @archive %>
-  <div>
-    <%= link_to "Modifier", edit_archive_path(@archive), class: 'btn btn-primary mb-1' %>
-    <%= button_to "Supprimer", @archive, method: :delete, class: 'btn btn-danger' %>
+<div class="row">
+  <div class="col-lg-7">
+    <%= simple_format @archive.description %>
   </div>
-<% end %>
+  <div class="offset-lg-1 col-lg-4">
+    <label class="form-label">Organisation</label>
+    <p><%= link_to @archive.organisation, @archive.organisation %></p>
+    <label class="form-label">Url</label>
+    <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
+
+    <%= link_to 'Accéder aux secrets', secret_archive_path(@archive), class: 'btn btn-primary mb-1'  if can? :secret, @archive %>
+
+    <% if can? :edit, @archive %>
+      <div>
+        <%= link_to "Modifier", edit_archive_path(@archive), class: 'btn btn-primary mb-1' %>
+        <%= button_to "Supprimer", @archive, method: :delete, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+

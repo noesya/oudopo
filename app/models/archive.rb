@@ -21,8 +21,15 @@
 #
 class Archive < ApplicationRecord
   belongs_to :organisation
+  before_validation :generate_secret_if_empty
 
   def to_s
     "#{name}"
+  end
+
+  protected
+
+  def generate_secret_if_empty
+    self.secret =  SecureRandom.uuid if secret.blank?
   end
 end

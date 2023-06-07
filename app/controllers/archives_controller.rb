@@ -9,6 +9,12 @@ class ArchivesController < ApplicationController
   def show
     add_breadcrumb @archive
   end
+
+  def secret
+    redirect_to @archive unless can? :secret, @archive
+    add_breadcrumb @archive, @archive
+    add_breadcrumb 'Secret'
+  end
   
   def new
     add_breadcrumb 'Créer une archive'

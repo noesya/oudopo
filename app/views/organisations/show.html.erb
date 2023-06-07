@@ -1,25 +1,34 @@
 <%= content_for :title, @organisation %>
 
-<p>
-  <%= link_to @organisation.website, @organisation.website, target: :_blank %>
-</p>
-
-
-<h2 class="h5">Archives</h2>
-
-<table class="table">
-  <tbody>
-    <% @organisation.archives.each do |archive| %>
-      <tr>
-        <td><%= link_to archive, archive %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if can? :edit, @organisation %>
-  <div>
-    <%= link_to "Modifier", edit_organisation_path(@organisation), class: 'btn btn-primary mb-1' %>
-    <%= button_to "Supprimer", @organisation, method: :delete, class: 'btn btn-danger' %>
+<div class="row">
+  <div class="col-lg-7">
+    <h2 class="h5">Archives</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organisation.archives.each do |archive| %>
+          <tr>
+            <td><%= link_to archive, archive %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-<% end %>
+  <div class="offset-lg-1 col-lg-4">
+    <label class="form-label">Site Web</label>
+    <p><%= link_to @organisation.website, @organisation.website, target: :_blank %></p>
+    <%=  @organisation.slug %>
+
+    <% if can? :edit, @organisation %>
+      <div>
+        <%= link_to "Modifier", edit_organisation_path(@organisation), class: 'btn btn-primary mb-1' %>
+        <%= button_to "Supprimer", @organisation, method: :delete, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
