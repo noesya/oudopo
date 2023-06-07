@@ -13,10 +13,10 @@
   <body>
     <div class="container py-3 py-md-5">
       <%= render 'header' %>
-      <main class="mt-5>
-        <%= render 'breadcrumbs' %>
+      <main>
         <%= render 'notice' %>
-        <h1 class="text-body-emphasis"><%= yield :title %></h1>
+        <h1 class="my-5"><%= yield :title %></h1>
+        <%= render 'breadcrumbs' %>
         <%= yield %>
       </main>
       <%= render 'footer' %>
