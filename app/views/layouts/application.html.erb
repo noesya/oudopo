@@ -19,7 +19,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ms-auto mb-2 mb-md-0">
             <li class="nav-item">
@@ -29,6 +28,8 @@
         </div>
       </nav>
       <main>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <h1 class="text-body-emphasis"><%= yield :title %></h1>
         <%= yield %>
       </main>
