@@ -5,8 +5,12 @@
     <div class="col-lg-3">
       <div class="card mb-3">
         <div class="card-body">
-          <h2 class="card-title h5"><%= organisation %></h2>
-          <%= link_to 'En savoir plus', direct_organisation_path(organisation), class: 'stretched-link' %>
+          <h2 class="card-title h5">
+            <%= link_to organisation, direct_organisation_path(organisation), class: 'stretched-link'  %>
+          </h2>
+          <p class="mb-0">
+            <%= organisation.archives.count %> archives
+          </p>
         </div>
       </div>
     </div>

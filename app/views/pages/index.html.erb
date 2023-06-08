@@ -1,5 +1,17 @@
 <%= content_for :title, 'Un espace libre pour des données libres' %>
 
-
-<%= link_to 'Découvrir les organisations', organisations_path, class: 'btn btn-primary' %>
-<%= link_to 'Accéder aux archives', archives_path, class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col-lg-7">
+    <p class="lead">
+      Les organisations culturelles produisent et prennent soin de quantités de données dotées d'une valeur patrimoniale. 
+      Qu'il s'agisse d'archives d'expositions, de catalogues d'œuvres, de textes et d'essais, d'images ou de vidéos, il est souhaitable de partager ces données de façon libre et ouverte.
+      Beaucoup de sites d'institutions sont gérés avec WordPress, une solution de gestion de contenu Web en source ouverte.
+      Malgré ses qualités, WordPress ne permet pas d'assurer une mise à disposition ouverte et pérenne des données.
+      L'Ouvroir de données potentielles permet de sortir les données de WordPress simplement et de les offrir à des formats ouverts et interopérables.
+    </p>
+  </div>
+  <div class="offset-lg-1 col-lg-4">
+    <%= link_to 'Découvrir les organisations', organisations_path, class: 'btn btn-primary mb-3' %>
+    <%= link_to 'Accéder aux archives', archives_path, class: 'btn btn-primary mb-3' %>
+  </div>
+</div>

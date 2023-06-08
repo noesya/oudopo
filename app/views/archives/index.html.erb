@@ -1,20 +1,20 @@
 <%= content_for :title, 'Archives' %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Archive</th>
-      <th>Organisation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @archives.each do |archive| %>
-      <tr>
-        <td><%= link_to archive, direct_archive_path(organisation_slug: archive.organisation.slug, archive_slug: archive.slug) %></td>
-        <td><%= link_to archive.organisation, direct_organisation_path(archive.organisation) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <% @archives.each do |archive| %>
+    <div class="col-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title h5">
+            <%= link_to archive, 
+                        direct_archive_path(organisation_slug: archive.organisation.slug, archive_slug: archive.slug), 
+                        class: 'stretched-link' %>
+          </h2>
+          <p class="mb-0"><%= archive.organisation %>, <%= archive.items.count %> items</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "Créer", new_archive_path, class: 'btn btn-primary' if can? :create, Archive %>

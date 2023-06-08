@@ -1,10 +1,18 @@
 <%= content_for :title, @archive %>
 
-<div class="row">
+<div class="row mb-5">
   <div class="col-lg-7">
     <%= simple_format @archive.description %>
+    <% if can? :edit, @archive %>
+      <div>
+        <%= link_to 'Accéder aux secrets', secret_archive_path(@archive), class: 'btn btn-primary mb-1'  if can? :secret, @archive %>
+        <%= link_to "Modifier", edit_archive_path(@archive), class: 'btn btn-primary mb-1' %>
+        <%= link_to "Supprimer", @archive, method: :delete, class: 'btn btn-danger mb-1', data: { confirm: 'Confimer la suppression ?' }  %>
+      </div>
+    <% end %>
+
   </div>
-  <div class="offset-lg-1 col-lg-4">
+  <div class="offset-lg-1 col-lg-4 text-end">
     <label class="form-label">Organisation</label>
     <p><%= link_to @archive.organisation, direct_organisation_path(@archive.organisation) %></p>
 
@@ -14,15 +22,6 @@
     <% if @archive.url.present? %>
       <label class="form-label">Url</label>
       <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
-    <% end %>
-
-    <%= link_to 'Accéder aux secrets', secret_archive_path(@archive), class: 'btn btn-primary mb-1'  if can? :secret, @archive %>
-
-    <% if can? :edit, @archive %>
-      <div>
-        <%= link_to "Modifier", edit_archive_path(@archive), class: 'btn btn-primary mb-1' %>
-        <%= button_to "Supprimer", @archive, method: :delete, class: 'btn btn-danger', data: { confirm: 'Confimer la suppression ?' }  %>
-      </div>
     <% end %>
   </div>
 </div>
