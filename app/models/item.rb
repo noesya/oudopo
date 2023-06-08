@@ -22,9 +22,13 @@
 class Item < ApplicationRecord
   belongs_to :archive
 
-  before_validation :denormalize_data
+  validates_presence_of :original_id
 
+  before_validation :denormalize_data
+  after_save, :extract_media
+  
   scope :ordered, -> { order(date: :desc) }
+
 
   def to_s
     "#{name}"
@@ -35,5 +39,9 @@ class Item < ApplicationRecord
   def denormalize_data
     self.name = CGI.unescapeHTML data['essentials']['title']
     self.date = data['essentials']['date']
+  end
+
+  def extract_media
+
   end
 end

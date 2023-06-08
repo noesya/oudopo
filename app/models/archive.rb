@@ -28,6 +28,8 @@ class Archive < ApplicationRecord
 
   has_many :items
 
+  validates_presence_of :original_id
+
   def store(data)
     original_id = data['essentials']['id']
     item = items.where(original_id: original_id).first_or_initialize
