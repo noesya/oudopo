@@ -1,6 +1,11 @@
 <%= content_for :title, @item %>
 
-<p><%= l @item.date if @item.date.present? %></p>
+<%= link_to 'Format .json', 
+            direct_item_path( organisation_slug: @item.archive.organisation.slug, 
+                              archive_slug: @item.archive.slug, 
+                              item_id: @item.id,
+                              format: :json), 
+            class: 'btn btn-primary mb-1' %>
 
 <% @item.data.each do |key, value| %>
   <h2 class="h4 mt-5"><%= key.to_s.titleize %></h2>
