@@ -4,6 +4,7 @@
 #
 #  id           :uuid             not null, primary key
 #  data         :jsonb
+#  date         :datetime
 #  original_url :text
 #  path         :text
 #  created_at   :datetime         not null

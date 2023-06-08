@@ -13,7 +13,7 @@
   <% @item.assets.each do |asset| %>
     <div class="col-6 col-lg-2 mb-3">
       <%= link_to asset.original_url, target: :_blank do %>
-        <%= image_tag asset.original_url, class: 'img-fluid' %>
+        <%= image_tag asset.url, class: 'img-fluid' %>
     <% end %>
     </div>
   <% end %>
