@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       get :secret
     end
   end
-  get 'wordpress' => 'pages#wordpress'
+  get 'wordpress' => 'pages#how'
+  get 'mode-d-emploi' => 'pages#how', as: :how
   get ':organisation_slug' => 'direct#organisation', as: :direct_organisation
   get ':organisation_slug/:archive_slug' => 'direct#archive', as: :direct_archive
   get ':organisation_slug/:archive_slug/:item_id' => 'direct#item', as: :direct_item

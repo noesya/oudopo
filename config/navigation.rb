@@ -39,7 +39,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :wordpress, 'Sortir de WordPress', wordpress_path
+    primary.item :how, 'Mode d\'emploi', how_path
     primary.item :organisations, 'Organisations', organisations_path
     primary.item :archives, 'Archives', archives_path
   end

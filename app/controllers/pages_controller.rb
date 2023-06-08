@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def index
   end
 
-  def wordpress
+  def how
   end
 
 end
