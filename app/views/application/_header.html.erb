@@ -1,11 +1,17 @@
-<nav class="navbar navbar-expand-md mb-5" aria-label="Fourth navbar example">
-  <%= link_to root_path do %>
-    <%= image_tag 'logo.svg', width: 250 %>
-  <% end %>
-  <button class="navbar-toggler border-0 align-self-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse text-end" id="navbar">
-    <%= render_navigation %>
+<header class="py-4">
+  <div class="container">
+    <nav class="navbar navbar-expand-md mb-5" aria-label="Fourth navbar example">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.svg', width: 250 %>
+      <% end %>
+      <button class="navbar-toggler border-0 align-self-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-end" id="navbar">
+        <%= render_navigation %>
+      </div>
+    </nav>
+
+    <h1 class="my-5 pt-5"><%= yield :title %></h1>
   </div>
-</nav>
+</header>
