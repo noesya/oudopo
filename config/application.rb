@@ -18,6 +18,8 @@ module Oudopo
     config.i18n.available_locales = [:fr]
     config.i18n.default_locale = :fr
 
+    config.active_storage.variant_processor = :mini_magick
+
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end

@@ -1,0 +1,10 @@
+<div class="row">
+  <% assets.each do |asset| %>
+    <div class="col-6 col-lg-2 mb-3">
+      <%= image_tag asset.url, class: 'img-fluid', loading: :lazy %>
+      <p class="small">
+        <%= link_to asset.filename, asset.url, target: :_blank %>
+      </p>
+    </div>
+  <% end %>
+</div>

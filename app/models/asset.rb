@@ -31,7 +31,15 @@ class Asset < ApplicationRecord
   scope :ordered, -> { order(date: :desc) }
 
   def url
-    original_url
+    "#{ENV['SCALEWAY_OS_URL']}#{path}"
+  end
+
+  def suffix
+    original_url.split('.').last
+  end
+
+  def filename
+    original_url.split('/').last
   end
 
   protected
@@ -39,6 +47,22 @@ class Asset < ApplicationRecord
   def manage_file
     self.date = data['post_date_gmt']
     self.original_url = data['guid']
-    # TODO create path and send to scaleway
+    self.path = composed_path
+    upload
+  end
+
+  def composed_path
+    "#{archive.organisation.slug}/#{archive.slug}/assets/#{original_id}.#{suffix}"
+  end
+  
+  def upload
+    # dir = Rails.root.join('tmp', 'files', id)
+    # FileUtils.mkpath dir
+    # file = "#{dir}/file.#{suffix}"
+    # File.open(file, "wb") do |f| 
+    #   f.write HTTParty.get(url).body
+    # end
+    body = HTTParty.get(original_url).body
+    ActiveStorage::Blob.service.upload(path, body)
   end
 end

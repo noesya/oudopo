@@ -3,12 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
+gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
 gem "bootsnap", require: false
 gem "cancancan"
 gem "devise"
 gem "devise-i18n"
 gem "devise-bootstrap5"
+gem "figaro"
+gem "httparty"
 gem "image_processing", "~> 1.2"
 gem "rails", "~> 7.0.5"
 gem "rails-i18n"
