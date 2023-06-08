@@ -10,6 +10,9 @@ module Oudopo
   class Application < Rails::Application
     config.load_defaults 7.0
 
+    config.internal_domains = ['@noesya.coop'].freeze
+    config.time_zone = 'Europe/Paris'
+
     config.sass.preferred_syntax = :sass
 
     config.i18n.available_locales = [:fr]
