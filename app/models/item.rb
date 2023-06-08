@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   validates_presence_of :original_id
 
   before_validation :denormalize_data
-  after_save, :extract_media
+  after_save :extract_media
   
   scope :ordered, -> { order(date: :desc) }
 
