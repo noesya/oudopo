@@ -9,18 +9,28 @@
       <%= link_to "Modifier", edit_archive_path(@archive), class: 'btn btn-primary mb-1' if can? :edit, @archive %>
       <%= link_to "Supprimer", @archive, method: :delete, class: 'btn btn-danger mb-1', data: { confirm: 'Confimer la suppression ?' } if can? :destroy, @archive  %>
     </div>
-
   </div>
   <div class="offset-lg-1 col-lg-4 text-end">
-    <label class="form-label">Organisation</label>
-    <p><%= link_to @archive.organisation, direct_organisation_path(@archive.organisation) %></p>
+    <div class="mb-4">
+      <label class="form-label">Organisation</label>
+      <p><%= link_to @archive.organisation, direct_organisation_path(@archive.organisation) %></p>
+    </div>
 
-    <label class="form-label">Items</label>
-    <p><%= @archive.items.count %></p>
+    <div class="mb-4">
+      <label class="form-label">Items</label>
+      <p><%= @archive.items.count %></p>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">Assets</label>
+      <p><%= @archive.assets.count %></p>
+    </div>
 
     <% if @archive.url.present? %>
-      <label class="form-label">Url</label>
-      <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
+      <div class="mb-4">
+        <label class="form-label">Url</label>
+        <p><%= link_to @archive.url, @archive.url, target: :_blank %></p>
+      </div>
     <% end %>
   </div>
 </div>

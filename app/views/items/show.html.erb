@@ -1,17 +1,93 @@
 <%= content_for :title, @item %>
 
-<%= link_to 'Format .json', 
-            direct_item_path( organisation_slug: @item.archive.organisation.slug, 
-                              archive_slug: @item.archive.slug, 
-                              item_id: @item.id,
-                              format: :json), 
-            class: 'btn btn-primary mb-1' %>
+<div class="mb-5">
+  <%= link_to 'Format .json', 
+              direct_item_path( organisation_slug: @item.archive.organisation.slug, 
+                                archive_slug: @item.archive.slug, 
+                                item_id: @item.id,
+                                format: :json), 
+              class: 'btn btn-primary mb-1' %>
+</div>
 
-
-<h2 class="h4 mt-5">Assets</h2>
-<%= render 'assets/list', assets: @item.assets.ordered %>
-
-<% @item.data.each do |key, value| %>
-  <h2 class="h4 mt-5"><%= key.to_s.titleize %></h2>
-  <%= render 'items/value', value: value %>
-<% end %>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button id="essentials-tab" 
+            class="nav-link active" 
+            data-bs-toggle="tab" 
+            data-bs-target="#essentials" 
+            type="button" 
+            role="tab" 
+            aria-controls="essentials" 
+            aria-selected="true">Essentiel</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="essentials-tab" 
+            class="nav-link" 
+            data-bs-toggle="tab" 
+            data-bs-target="#assets" 
+            type="button" 
+            role="tab" 
+            aria-controls="assets" 
+            aria-selected="false">Assets</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="media-tab" 
+            class="nav-link" 
+            data-bs-toggle="tab" 
+            data-bs-target="#media" 
+            type="button" 
+            role="tab" 
+            aria-controls="media" 
+            aria-selected="false">Media</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="meta-tab" 
+            class="nav-link" 
+            data-bs-toggle="tab" 
+            data-bs-target="#meta" 
+            type="button" 
+            role="tab" 
+            aria-controls="meta" 
+            aria-selected="false">Meta</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="comments-tab" 
+            class="nav-link" 
+            data-bs-toggle="tab" 
+            data-bs-target="#comments" 
+            type="button" 
+            role="tab" 
+            aria-controls="comments" 
+            aria-selected="false">Commentaires</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button id="categories-tab" 
+            class="nav-link" 
+            data-bs-toggle="tab" 
+            data-bs-target="#categories" 
+            type="button" 
+            role="tab" 
+            aria-controls="categories" 
+            aria-selected="false">Catégories</button>
+  </li>
+</ul>
+<div class="tab-content pt-3" id="tabContent">
+  <div class="tab-pane fade show active" id="essentials" role="tabpanel" aria-labelledby="essentials-tab" tabindex="0">
+    <%= render 'items/value', value: @item.data['essentials'] %>
+  </div>
+  <div class="tab-pane fade" id="assets" role="tabpanel" aria-labelledby="assets-tab" tabindex="0">
+    <%= render 'assets/list', assets: @item.assets.ordered %>
+  </div>
+  <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab" tabindex="0">
+    <%= render 'items/value', value: @item.data['media'] %>
+  </div>
+  <div class="tab-pane fade" id="meta" role="tabpanel" aria-labelledby="meta-tab" tabindex="0">
+    <%= render 'items/value', value: @item.data['meta'] %>
+  </div>
+  <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab" tabindex="0">
+    <%= render 'items/value', value: @item.data['comments'] %>
+  </div>
+  <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories-tab" tabindex="0">
+    <%= render 'items/value', value: @item.data['categories'] %>
+  </div>
+</div>
