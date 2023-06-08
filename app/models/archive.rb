@@ -24,11 +24,12 @@ class Archive < ApplicationRecord
   include WithSlug
 
   belongs_to :organisation
-  before_validation :generate_secret_if_empty
-
   has_many :items
-
+  has_many :assets
+  
   validates_presence_of :original_id
+  
+  before_validation :generate_secret_if_empty
 
   def store(data)
     original_id = data['essentials']['id']

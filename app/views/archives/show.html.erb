@@ -25,9 +25,7 @@
   </div>
 </div>
 
-<%
-@items = @archive.items.ordered.page(params[:page])
-%>
+<% @items = @archive.items.ordered.page(params[:page]) %>
 <%= render 'items/list', items: @items %>
 <%= paginate @items %>
 

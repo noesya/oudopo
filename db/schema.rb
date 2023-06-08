@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_142025) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_124707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -27,6 +27,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142025) do
     t.index ["organisation_id"], name: "index_archives_on_organisation_id"
   end
 
+  create_table "assets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "archive_id", null: false
+    t.string "original_id"
+    t.text "original_url"
+    t.text "path"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["archive_id"], name: "index_assets_on_archive_id"
+  end
+
+  create_table "assets_items", id: false, force: :cascade do |t|
+    t.uuid "item_id", null: false
+    t.uuid "asset_id", null: false
+    t.index ["asset_id", "item_id"], name: "index_assets_items_on_asset_id_and_item_id"
+    t.index ["item_id", "asset_id"], name: "index_assets_items_on_item_id_and_asset_id"
+  end
+
   create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "archive_id", null: false
     t.string "original_id"
@@ -36,6 +54,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142025) do
     t.string "name"
     t.date "date"
     t.index ["archive_id"], name: "index_items_on_archive_id"
+  end
+
+  create_table "media", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "archive_id", null: false
+    t.string "original_id"
+    t.text "original_url"
+    t.text "path"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["archive_id"], name: "index_media_on_archive_id"
   end
 
   create_table "organisations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -60,5 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_142025) do
   end
 
   add_foreign_key "archives", "organisations"
+  add_foreign_key "assets", "archives"
   add_foreign_key "items", "archives"
+  add_foreign_key "media", "archives"
 end

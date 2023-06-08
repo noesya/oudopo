@@ -7,6 +7,18 @@
                               format: :json), 
             class: 'btn btn-primary mb-1' %>
 
+
+<h2 class="h4 mt-5">Assets</h2>
+<div class="row">
+  <% @item.assets.each do |asset| %>
+    <div class="col-6 col-lg-2 mb-3">
+      <%= link_to asset.original_url, target: :_blank do %>
+        <%= image_tag asset.original_url, class: 'img-fluid' %>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+
 <% @item.data.each do |key, value| %>
   <h2 class="h4 mt-5"><%= key.to_s.titleize %></h2>
   <%= render 'items/value', value: value %>

@@ -21,11 +21,12 @@
 #
 class Item < ApplicationRecord
   belongs_to :archive
+  has_and_belongs_to_many :assets
 
   validates_presence_of :original_id
 
   before_validation :denormalize_data
-  after_save :extract_media
+  after_save :extract_assets
   
   scope :ordered, -> { order(date: :desc) }
 
@@ -41,7 +42,13 @@ class Item < ApplicationRecord
     self.date = data['essentials']['date']
   end
 
-  def extract_media
-
+  def extract_assets
+    data['media']['data'].each do |media|
+      original_id = media.first
+      asset = archive.assets.where(original_id: original_id).first_or_initialize
+      asset.data = media.last
+      asset.save
+      assets << asset unless assets.include?(asset)
+    end
   end
 end
