@@ -94,6 +94,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bootstrap5-kaminari-views (0.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     breadcrumbs_on_rails (4.1.0)
       railties (>= 5.0)
     builder (3.2.4)
@@ -154,6 +157,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -289,6 +295,7 @@ DEPENDENCIES
   activestorage-scaleway-service
   annotate
   bootsnap
+  bootstrap5-kaminari-views
   breadcrumbs_on_rails
   byebug
   cancancan
@@ -302,6 +309,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  kaminari-i18n
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.5)

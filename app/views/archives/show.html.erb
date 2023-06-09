@@ -38,10 +38,10 @@
 <h2 class="h4 mt-5">Items</h2>
 <% @items = @archive.items.ordered.page(params[:items_page]) %>
 <%= render 'items/list', items: @items %>
-<%= paginate @items, param_name: :items_page %>
+<%= paginate @items, param_name: :items_page, theme: 'bootstrap-5' %>
 
 
 <h2 class="h4 mt-5">Assets</h2>
 <% @assets = @archive.assets.ordered.page(params[:assets_page]) %>
 <%= render 'assets/list', assets: @assets %>
-<%= paginate @assets, param_name: :assets_page %>
+<%= paginate @assets, param_name: :assets_page, theme: 'bootstrap-5' %>
