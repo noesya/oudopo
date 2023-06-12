@@ -27,6 +27,7 @@ class Asset < ApplicationRecord
   validates_presence_of :original_id
 
   before_validation :manage_file
+  after_commit :sync_file
 
   scope :ordered, -> { order(date: :desc) }
 
@@ -48,21 +49,16 @@ class Asset < ApplicationRecord
     self.date = data['post_date_gmt']
     self.original_url = data['guid']
     self.path = composed_path
-    upload
   end
 
   def composed_path
     "#{archive.organisation.slug}/#{archive.slug}/assets/#{original_id}.#{suffix}"
   end
   
-  def upload
-    # dir = Rails.root.join('tmp', 'files', id)
-    # FileUtils.mkpath dir
-    # file = "#{dir}/file.#{suffix}"
-    # File.open(file, "wb") do |f| 
-    #   f.write HTTParty.get(url).body
-    # end
+  def sync_file
     body = HTTParty.get(original_url).body
     ActiveStorage::Blob.service.upload(path, body)
   end
+  handle_asynchronously :sync_file
+
 end

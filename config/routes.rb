@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  resources :items
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, :via => [:get, :post]
+
   devise_for :users
+
   namespace :api do
     post 'content' => 'content#sync'
   end
+  resources :items
   resources :organisations, param: :slug
   resources :archives do 
     member do
