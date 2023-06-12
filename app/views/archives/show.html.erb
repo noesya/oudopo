@@ -42,6 +42,6 @@
 
 
 <h2 class="h4 mt-5">Assets</h2>
-<% @assets = @archive.assets.ordered.page(params[:assets_page]) %>
+<% @assets = @archive.assets.ordered.page(params[:assets_page]).per(48) %>
 <%= render 'assets/list', assets: @assets %>
 <%= paginate @assets, param_name: :assets_page, theme: 'bootstrap-5' %>
