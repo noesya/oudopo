@@ -100,17 +100,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_063519) do
     t.index ["archive_id"], name: "index_items_on_archive_id"
   end
 
-  create_table "media", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "archive_id", null: false
-    t.string "original_id"
-    t.text "original_url"
-    t.text "path"
-    t.jsonb "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["archive_id"], name: "index_media_on_archive_id"
-  end
-
   create_table "organisations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -137,5 +126,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_063519) do
   add_foreign_key "archives", "organisations"
   add_foreign_key "assets", "archives"
   add_foreign_key "items", "archives"
-  add_foreign_key "media", "archives"
 end
