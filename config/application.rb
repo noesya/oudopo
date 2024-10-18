@@ -8,7 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Oudopo
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 7.2
+
+    config.autoload_lib(ignore: %w[assets tasks])
 
     config.internal_domains = ['@noesya.coop'].freeze
     config.time_zone = 'Europe/Paris'
