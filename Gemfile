@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.5"
+ruby "3.3.6"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
