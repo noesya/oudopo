@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.1"
+ruby "3.4.4"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
@@ -17,8 +17,6 @@ gem "devise-bootstrap5"
 gem "figaro"
 gem "httparty"
 gem "image_processing", "~> 1.2"
-gem "rails", "~> 7.2.0"
-gem "rails-i18n"
 gem "jbuilder"
 gem "jquery-rails"
 gem "kaminari"
@@ -26,6 +24,8 @@ gem "kaminari-i18n"
 gem "ostruct", "~> 0.6.0"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.0"
+gem "rails", "~> 8.0"
+gem "rails-i18n"
 gem "redis", "~> 4.0"
 gem "sassc-rails"
 gem "simple_form"
@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "annotate"
+  gem "annotaterb"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
