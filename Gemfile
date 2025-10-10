@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.6"
+ruby "3.4.7"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
@@ -23,7 +23,7 @@ gem "kaminari"
 gem "kaminari-i18n"
 gem "ostruct", "~> 0.6.0"
 gem "pg", "~> 1.1"
-gem "puma", "~> 6.0"
+gem "puma", "~> 7.0"
 gem "rails", "~> 8.0"
 gem "rails-i18n"
 gem "redis", "~> 4.0"
@@ -31,10 +31,10 @@ gem "sassc-rails"
 gem "simple_form"
 gem "simple-navigation"
 gem "sprockets-rails"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 group :development, :test do
-  gem "byebug", platforms: %i[ mri mingw x64_mingw ]
+  gem "byebug", platforms: %i[ mri windows ]
 end
 
 group :development do
