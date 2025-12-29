@@ -5,6 +5,7 @@ ruby "3.4.7"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
+gem "benchmark", "~> 0.5" # Removed from bundled gems in Ruby 4.0, needed for delayed_job
 gem "bootsnap", require: false
 gem "bootstrap5-kaminari-views"
 gem "bugsnag"
@@ -16,17 +17,16 @@ gem "devise-i18n"
 gem "devise-bootstrap5"
 gem "figaro"
 gem "httparty"
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.14"
 gem "jbuilder"
 gem "jquery-rails"
 gem "kaminari"
 gem "kaminari-i18n"
-gem "ostruct", "~> 0.6.0"
-gem "pg", "~> 1.1"
-gem "puma", "~> 7.0"
-gem "rails", "~> 8.0"
+gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
+gem "pg", "~> 1.6"
+gem "puma", "~> 7.1"
+gem "rails", "~> 8.1"
 gem "rails-i18n"
-gem "redis", "~> 4.0"
 gem "sassc-rails"
 gem "simple_form"
 gem "simple-navigation"
@@ -39,19 +39,10 @@ end
 
 group :development do
   gem "annotaterb"
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
   gem "webdrivers"
 end
