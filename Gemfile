@@ -5,7 +5,6 @@ ruby "3.4.7"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
-gem "benchmark", "~> 0.5" # Removed from bundled gems in Ruby 4.0, needed for delayed_job
 gem "bootsnap", require: false
 gem "bootstrap5-kaminari-views"
 gem "bugsnag"
