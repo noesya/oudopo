@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "4.0.3"
+ruby "4.0.5"
 
 gem "activestorage-scaleway-service"
 gem "breadcrumbs_on_rails"
@@ -16,14 +16,14 @@ gem "devise-i18n"
 gem "devise-bootstrap5"
 gem "figaro"
 gem "httparty"
-gem "image_processing", "~> 1.14"
+gem "image_processing", "~> 2.0"
 gem "jbuilder"
 gem "jquery-rails"
 gem "kaminari"
 gem "kaminari-i18n"
-gem "ostruct", "~> 0.6" # Removed from bundled gems in Ruby 4.0, needed for simple-navigation
+gem "mini_magick"
 gem "pg", "~> 1.6"
-gem "puma", "~> 7.1"
+gem "puma", "~> 8.0"
 gem "rails", "~> 8.1.0"
 gem "rails-i18n"
 gem "sassc-rails"
