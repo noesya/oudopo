@@ -5,11 +5,13 @@ Rails.application.config.to_prepare do
   # Base method: https://github.com/rails/rails/blob/v7.0.3/activestorage/app/models/active_storage/filename.rb#L57
   ActiveStorage::Filename.class_eval do
     def sanitized
-      base_filename = base.encode(Encoding::UTF_8, invalid: :replace, undef: :replace, replace: "�")
+      raw_extension = File.extname(@filename)
+      raw_base = File.basename(@filename, raw_extension)
+      base_filename = raw_base.encode(Encoding::UTF_8, invalid: :replace, undef: :replace, replace: "�")
                           .strip
                           .tr("\u{202E}%$|:;/\t\r\n\\", "-")
                           .parameterize(preserve_case: true)
-      [base_filename, extension_with_delimiter].join('')
+      [base_filename, raw_extension].join('')
     end
   end
 end
